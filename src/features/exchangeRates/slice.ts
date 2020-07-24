@@ -14,7 +14,7 @@ import { createSlice } from '@reduxjs/toolkit';
 export const initialState: ISliceState = {
     baseCurrency: CurrenciesEnum.EUR,
     rateHistorySearchConfig: {
-        dateFrom: ( d => new Date(d.setDate(d.getDate()-1)) )(new Date()),
+        dateFrom: new Date('2020-01-1'),
         dateTo: new Date(),
         targetCurrency: null,
     },

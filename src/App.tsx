@@ -8,6 +8,7 @@ import { Container } from '@material-ui/core';
 
 import ConnectedExchangeRatesTable from './features/exchangeRates/ConnectedExchangeRatesTable';
 import Controls from './features/exchangeRates/Controls';
+import HistoryModal from './features/exchangeRates/HistoryModal';
 
 import 'currency-flags/dist/currency-flags.css';
 import styles from './App.module.scss';
@@ -25,6 +26,7 @@ const App = () => {
 							<ConnectedExchangeRatesTable />
 						</main>
 					</section>
+					<HistoryModal />
 				</Container>
 			</PersistGate>
 		</Provider>

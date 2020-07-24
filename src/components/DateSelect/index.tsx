@@ -26,6 +26,7 @@ const DateSelect = ({
     return (
         <MuiPickersUtilsProvider utils={DateFnsUtils}>
             <KeyboardDatePicker
+                required
                 disableToolbar
                 minDate={minDate}
                 maxDate={maxDate}

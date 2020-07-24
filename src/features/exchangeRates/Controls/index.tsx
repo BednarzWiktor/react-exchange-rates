@@ -12,8 +12,6 @@ import { CurrenciesEnum } from '../../../enums';
 
 import styles from './index.module.scss';
 
-
-
 const Controls = ({
     baseCurrency,
     amount,

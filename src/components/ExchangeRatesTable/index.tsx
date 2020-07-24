@@ -3,6 +3,8 @@ import React from 'react';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 
+import { roundNumberToXDecimals } from '../../utils';
+
 import {
     Table,
     TableBody,
@@ -11,8 +13,12 @@ import {
     TableHead,
     TableRow,
     Paper,
-    CircularProgress
+    CircularProgress,
+    IconButton
 } from '@material-ui/core';
+import TimelineIcon from '@material-ui/icons/Timeline';
+
+import { IExchangeRateRow } from '../../types/features/searchConfig';
 
 import styles from './index.module.scss';
 
@@ -25,12 +31,23 @@ const useStyles = makeStyles({
     },
 });
 
+interface Props {
+    rows: Array<IExchangeRateRow>,
+    isLoading: Boolean,
+    viewHistory: Function
+};
+
 const ExchangeRatesTable = ({
     rows,
-    isLoading
-}: any) => {
+    isLoading,
+    viewHistory
+}: Props) => {
     const classes = useStyles();
     
+    const handleViewHistory = (currency: string) => (): void => {
+        viewHistory(currency);
+    };
+
     return (
         <Paper className={classes.root} elevation={5}>
             <TableContainer className={classes.container}>
@@ -46,11 +63,12 @@ const ExchangeRatesTable = ({
                                     <TableCell>Currency</TableCell>
                                     <TableCell align="right">Exchange Rate</TableCell>
                                     <TableCell align="right">Value</TableCell>
+                                    <TableCell align="right">History</TableCell>
                                 </TableRow>
                             </TableHead>
                             <TableBody>
                                 {
-                                    rows.map((row: any) => (
+                                    rows.map((row: IExchangeRateRow) => (
                                         <TableRow key={row.currency}>
                                             <TableCell component="th" scope="row">
                                                 <span className={styles.option}>
@@ -59,7 +77,12 @@ const ExchangeRatesTable = ({
                                                 </span>
                                             </TableCell>
                                             <TableCell align="right">{row.rate}</TableCell>
-                                            <TableCell align="right">{row.value}</TableCell>
+                                            <TableCell align="right">{roundNumberToXDecimals(row.value)}</TableCell>
+                                            <TableCell align="right">
+                                                <IconButton onClick={handleViewHistory(row.currency)} aria-label="history" size="small">
+                                                    <TimelineIcon color="primary"/>
+                                                </IconButton>
+                                            </TableCell>
                                         </TableRow>
                                     ))
                                 }

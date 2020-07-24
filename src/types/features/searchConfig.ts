@@ -6,8 +6,8 @@ export interface IExchangeRate {
 }
 
 export interface IRateHistoryPoint {
-    x: Date,
-    y: number
+    date: Date,
+    rate: number
 }
 
 interface IRateHistorySearchConfig {
@@ -39,6 +39,7 @@ export interface ISetBaseCurrencyAction {
 }
 
 export interface IUpdateRateHistorySearchConfigAction {
+    targetCurrency?: CurrenciesEnum | null,
     dateFrom?: Date,
     dateTo?: Date
 }
@@ -62,4 +63,9 @@ export interface ISetIsLoadingByTargetAction {
 
 export interface IExchangeRateRow extends IExchangeRate {
     value: number
+}
+
+export interface IEarliestOldestRates {
+    earliest: IRateHistoryPoint,
+    oldest: IRateHistoryPoint
 }

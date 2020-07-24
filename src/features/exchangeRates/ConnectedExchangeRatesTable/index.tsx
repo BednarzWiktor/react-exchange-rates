@@ -5,7 +5,10 @@ import {
     selectExchangeRatesTableRows,
     selectIsExchangeRatesIsFetched
 } from '../../../redux/selectors/exchangeRates';
-import { fetchExchangeRates } from '../../../redux/methods/exchangeRates';
+import {
+    fetchExchangeRates,
+    updateSearchConfig
+} from '../../../redux/methods/exchangeRates';
 
 import ExchangeRatesTable from '../../../components/ExchangeRatesTable';
 
@@ -14,18 +17,24 @@ const ConnectedExchangeRatesTable = ({
     isLoading,
     isFetched,
     exchangeRatesTableRows,
-    fetchExchangeRates
+    fetchExchangeRates,
+    updateSearchConfig
 }: any) => {
     useEffect(() => {
         if (!isFetched) {
             fetchExchangeRates(baseCurrency);
         }
-    }, []) //eslint-disable-line
+    }, []); //eslint-disable-line
+
+    const viewHistory = (currency: string): void => {
+        updateSearchConfig({ targetCurrency: currency });
+    };
 
     return (
         <ExchangeRatesTable
             rows={exchangeRatesTableRows}
             isLoading={isLoading}
+            viewHistory={viewHistory}
         />
     );
 };
@@ -38,7 +47,8 @@ const mapStateToProps = (state: any) => ({
 });
 
 const mapDispatch = {
-    fetchExchangeRates
+    fetchExchangeRates,
+    updateSearchConfig
 };
 
 export default connect(mapStateToProps, mapDispatch)(ConnectedExchangeRatesTable);

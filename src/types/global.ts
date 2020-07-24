@@ -2,7 +2,7 @@ import { CurrenciesEnum } from '../enums';
 
 export interface IExchangeRatesLatestArgs {
     base?: CurrenciesEnum,
-    symbols?: Array<CurrenciesEnum>,
+    symbols?: CurrenciesEnum | null | undefined,
 }
 
 export interface IExchangeRatesLatestReturn {

@@ -1,0 +1,83 @@
+.header {
+    width: 100%;
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.option {
+    display: flex;
+    align-items: center;
+}
+
+.flag {
+    margin: 0 10px 2px 0;
+}
+
+.title, .titleAdorment {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.title {
+    width: 100%;
+}
+
+.titleAdorment {
+    margin-left: 20px;
+}
+
+.controls {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.input, .button {
+    margin: 0 10px;
+}
+
+.input {
+    width: 150px;
+}
+
+.button {
+    margin-top: 10px;
+    height: 48px;
+
+    @media screen and (min-width: 612px) {
+        margin-top: 20px;
+    }
+}
+
+.main {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+
+    @media screen and (min-width: 560px) {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+.dates {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 0;
+}
+
+.progression {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    @media screen and (min-width: 560px) {
+        margin-right: 20px;
+    }
+}
