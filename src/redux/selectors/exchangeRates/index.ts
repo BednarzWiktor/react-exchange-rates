@@ -10,3 +10,8 @@ export const selectExchangeRatesTableRows = createSelector(
     selectAmount,
     (resultExhangeRates, amount) => generateTableRows(resultExhangeRates, amount)
 );
+
+export const selectIsExchangeRatesIsFetched = createSelector(
+    selectResultExchangeRates,
+    resultExchangeRates => resultExchangeRates.length > 0 ? true : false
+);

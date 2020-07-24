@@ -45,6 +45,7 @@ const SearchableSelect = ({
                 props =>
                     <TextField
                         {...props}
+                        variant="outlined"
                         label={label}
                         InputProps={{
                             ...props.InputProps,

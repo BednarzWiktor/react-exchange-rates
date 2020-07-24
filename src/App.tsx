@@ -10,14 +10,21 @@ import ConnectedExchangeRatesTable from './features/exchangeRates/ConnectedExcha
 import Controls from './features/exchangeRates/Controls';
 
 import 'currency-flags/dist/currency-flags.css';
+import styles from './App.module.scss';
 
 const App = () => {
 	return (
 		<Provider store={store}>
 			<PersistGate loading={null} persistor={persistor}>
-				<Container>
-					<Controls />
-					<ConnectedExchangeRatesTable />
+				<Container maxWidth="md">
+					<section className={styles.section}>
+						<header className={styles.controls}>
+							<Controls />
+						</header>
+						<main className={styles.table}>
+							<ConnectedExchangeRatesTable />
+						</main>
+					</section>
 				</Container>
 			</PersistGate>
 		</Provider>

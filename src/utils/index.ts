@@ -1,15 +1,6 @@
 import { IExchangeRatesLatestArgs, IExchangeRatesHistoryArgs } from '../types/global';
 import { IExchangeRate, IExchangeRateRow } from '../types/features/searchConfig';
 
-export const numericInputValidator = (input: string): boolean => {
-    if (input === '') return true;
-
-    const regEx = /^[0-9.]+$/;
-    const dotsCount = input.split('').reduce((result, item) => item === '.' ? result + 1 : result, 0);
-
-    return regEx.test(input) && dotsCount < 2;
-};
-
 export const adjustMonthOrDay = (monthOrDay: string): string =>
     monthOrDay.length < 2 ? `0${monthOrDay}` : monthOrDay
 ;

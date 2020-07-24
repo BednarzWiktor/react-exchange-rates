@@ -10,6 +10,10 @@ import NumberInput from '../../../components/NumberInput';
 
 import { CurrenciesEnum } from '../../../enums';
 
+import styles from './index.module.scss';
+
+
+
 const Controls = ({
     baseCurrency,
     amount,
@@ -25,19 +29,25 @@ const Controls = ({
     };
 
     return (
-        <Paper>
-            <SearchableSelect
-                value={baseCurrency}
-                setValue={handleFetchExchangeRates}
-                options={Object.values(CurrenciesEnum)}
-                label="Base Currency"
-                disableClearable
-            />
-            <NumberInput
-                value={amount}
-                setValue={handleChangeAmount}
-                label="Amount"
-            />
+        <Paper elevation={5}>
+            <div className={styles.container}>
+                <span className={styles.autocomplete}>
+                    <SearchableSelect
+                        value={baseCurrency}
+                        setValue={handleFetchExchangeRates}
+                        options={Object.values(CurrenciesEnum)}
+                        label="Base Currency"
+                        disableClearable
+                    />
+                </span>
+                <span className={styles.number}>
+                    <NumberInput
+                        value={amount}
+                        setValue={handleChangeAmount}
+                        label="Amount"
+                    />
+                </span>
+            </div>
         </Paper>
     );
 };

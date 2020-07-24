@@ -1,0 +1,25 @@
+.container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    padding: 5px;
+
+    @media screen and (min-width: 460px) {
+        padding: 15px;
+    }
+}
+
+.autocomplete, .number {
+    margin: 10px 0;
+}
+
+.autocomplete {
+    width: 150px;
+    margin-right: 20px;
+}
+
+.number {
+    width: 100px;
+}

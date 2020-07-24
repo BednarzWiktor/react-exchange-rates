@@ -16,6 +16,7 @@ const NumberInput = ({ label, value, setValue }: Props) => {
     
     return (
         <TextField
+            variant="outlined"
             label={label}
             value={value}
             onChange={handleSetValue}

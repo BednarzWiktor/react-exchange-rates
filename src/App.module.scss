@@ -1,0 +1,20 @@
+body {
+    background-color: rgb(240, 240, 240);
+}
+
+.section {
+    margin: 20px 0;
+    padding: 0px;
+
+    @media screen and (min-width: 460px) {
+        padding: 10px;
+    }
+
+    @media screen and (min-width: 1024px) {
+        padding: 20px;
+    }
+}
+
+.controls {
+    margin-bottom: 20px;
+}
